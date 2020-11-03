@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * @author noseparte
  * @link github.com/noseparte
  * @date 2020/11/3 - 19:18
- * @implSpec
+ * @implSpec user概况
  */
 @Data
 @Document
@@ -84,6 +84,20 @@ public class UserProfile {
      */
     @Field("silverDay")
     private int silverDay;
+
+    /**
+     * 势力值
+     */
+    @Field("power")
+    private int power;
+
+    /**
+     * 土地数
+     */
+    @Field("soil")
+    private int soil;
+
+
 
 }
 
