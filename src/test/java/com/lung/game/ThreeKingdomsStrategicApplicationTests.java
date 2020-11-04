@@ -1,4 +1,4 @@
-package com.lung;
+package com.lung.game;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

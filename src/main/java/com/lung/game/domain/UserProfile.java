@@ -1,4 +1,4 @@
-package com.lung.domain;
+package com.lung.game.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
