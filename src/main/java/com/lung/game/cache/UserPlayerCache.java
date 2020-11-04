@@ -1,6 +1,7 @@
 package com.lung.game.cache;
 
 import com.lung.game.domain.UserProfile;
+import org.springframework.data.keyvalue.repository.KeyValueRepository;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ import javax.annotation.Resource;
  * @implSpec
  */
 @Component
-public class UserPlayerCache {
+public class UserPlayerCache{
 
     private final static String USER_CACHE_KEY = "user_cache_key_";
 

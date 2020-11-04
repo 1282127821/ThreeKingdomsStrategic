@@ -1,6 +1,7 @@
 package com.lung.game.repository;
 
 import com.lung.game.domain.UserProfile;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,6 @@ import org.springframework.stereotype.Repository;
  * @implSpec
  */
 @Repository
-public interface UserProfileRepository extends CrudRepository<Long, UserProfile> {
+public interface UserProfileRepository extends MongoRepository<UserProfile, Long> {
 
 }

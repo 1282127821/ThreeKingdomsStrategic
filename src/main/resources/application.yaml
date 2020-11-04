@@ -1,12 +1,8 @@
+logging.level.web : DEBUG
 server:
   port: 9999
 
 spring:
-  data:
-    mongodb:
-      host: 127.0.0.1
-      port: 27017
-
-  redis:
-    host: 127.0.0.1
-    port: 6379
+  profiles:
+    active: dev
+    include: redis

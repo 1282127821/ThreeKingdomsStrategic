@@ -1,6 +1,7 @@
 package com.lung.game.service;
 
 import com.lung.game.cache.UserPlayerCache;
+import com.lung.game.domain.UserProfile;
 import com.lung.game.repository.UserProfileRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,6 @@ public class UserService {
 
     @Resource
     UserPlayerCache userPlayerCache;
+
 
 }
