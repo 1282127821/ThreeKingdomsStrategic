@@ -23,4 +23,13 @@ public class UserService {
     UserPlayerCache userPlayerCache;
 
 
+    public void login(UserProfile user) {
+        userPlayerCache.save(user);
+
+        // TODO test mongo
+        userProfileRepository.save(user);
+
+    }
+
+
 }

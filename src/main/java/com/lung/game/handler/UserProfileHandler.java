@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author noseparte
@@ -25,9 +27,9 @@ public class UserProfileHandler {
     UserService userService;
 
     @RequestMapping(value = "/login")
-    public Response login(@RequestParam(name = "json") String json) {
+    public Response login(@RequestBody String json, HttpServletRequest request, HttpServletResponse response) {
         UserProfile user = JSONObject.parseObject(json, UserProfile.class);
-
+        userService.login(user);
         return new Response().success();
     }
 
