@@ -1,12 +1,12 @@
 package com.lung.game.handler;
 
+import com.alibaba.fastjson.JSONObject;
+import com.lung.game.domain.UserProfile;
 import com.lung.game.service.UserService;
 import com.lung.game.web.bean.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -25,9 +25,8 @@ public class UserProfileHandler {
     UserService userService;
 
     @RequestMapping(value = "/login")
-    public Response login() {
-
-
+    public Response login(@RequestParam(name = "json") String json) {
+        UserProfile user = JSONObject.parseObject(json, UserProfile.class);
 
         return new Response().success();
     }
