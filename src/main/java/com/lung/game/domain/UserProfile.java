@@ -1,9 +1,11 @@
 package com.lung.game.domain;
 
+import com.lung.game.mixed.RedisKeyPrefix;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.redis.core.RedisHash;
 
 /**
  * @author noseparte
@@ -12,7 +14,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * @implSpec user概况
  */
 @Data
-@Document
+@RedisHash(RedisKeyPrefix.User.USER_CACHE_KEY)
+@Document(collation = "user_profile")
 public class UserProfile {
 
     @Id
