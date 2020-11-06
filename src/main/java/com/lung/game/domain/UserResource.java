@@ -1,9 +1,13 @@
 package com.lung.game.domain;
 
+import com.lung.game.mixed.RedisKeyPrefix;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.redis.core.RedisHash;
 
 /**
  * @author noseparte
@@ -11,7 +15,10 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * @date 2020/11/3 - 22:39
  * @implSpec 玩家 game resources
  */
+@Slf4j
 @Data
+@NoArgsConstructor
+@RedisHash(RedisKeyPrefix.User.USER_RESOURCE_KEY)
 @Document
 public class UserResource {
 
@@ -51,5 +58,24 @@ public class UserResource {
      */
     @Field("copper")
     private int copper;
+
+    public UserResource(Long uid) {
+        this.uid = uid;
+    }
+
+    public void increment() {
+        grain += 100;
+        wood += 100;
+        iron += 100;
+        stone += 100;
+        copper += 50;
+
+        if (log.isInfoEnabled()) {
+            log.info("user {} resource [ grain {},wood {},iron {},stone {},copper {} ] is increment",
+                    uid, grain, wood, iron, stone, copper);
+        }
+    }
+
+
 
 }

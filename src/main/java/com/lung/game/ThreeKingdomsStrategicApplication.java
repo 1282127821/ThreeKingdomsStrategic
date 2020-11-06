@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Multiple Spring Data modules found, entering strict repository configuration mode!
@@ -14,6 +15,7 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 /**
  * @link @SpringBootApplication contain @ComponentScan
  */
+@EnableScheduling
 @SpringBootApplication(scanBasePackages = "com.lung.game")
 public class ThreeKingdomsStrategicApplication {
 
