@@ -68,7 +68,7 @@ public class UserResource {
         wood += 100;
         iron += 100;
         stone += 100;
-        copper += 50;
+        copper += 60;
 
         if (log.isInfoEnabled()) {
             log.info("user {} resource [ grain {},wood {},iron {},stone {},copper {} ] is increment",
