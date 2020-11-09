@@ -29,8 +29,8 @@ public class UserProfileHandler {
     @RequestMapping(value = "/login")
     public Response login(@RequestBody String json, HttpServletRequest request, HttpServletResponse response) {
         UserProfile user = JSONObject.parseObject(json, UserProfile.class);
-        userService.login(user);
-        return new Response().success();
+        UserProfile player = userService.login(user);
+        return new Response().success(player);
     }
 
 

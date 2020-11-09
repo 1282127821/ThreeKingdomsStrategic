@@ -91,6 +91,12 @@ public class UserProfile {
     private int silverDay;
 
     /**
+     * 名声 羁绊：每100名声增加一块土地上限
+     */
+    @Field("fame")
+    private int fame;
+
+    /**
      * 势力值
      */
     @Field("power")

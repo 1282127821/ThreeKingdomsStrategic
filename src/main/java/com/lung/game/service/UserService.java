@@ -6,9 +6,14 @@ import com.lung.game.domain.UserProfile;
 import com.lung.game.domain.UserResource;
 import com.lung.game.repository.UserProfileRepository;
 import com.lung.game.repository.UserResourceRepository;
+import com.lung.game.utils.EncryptionUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author noseparte
@@ -16,6 +21,7 @@ import javax.annotation.Resource;
  * @date 2020/11/4 - 12:25
  * @implSpec
  */
+@Slf4j
 @Service
 public class UserService {
 
@@ -30,7 +36,26 @@ public class UserService {
     @Resource
     UserResourceCache userResourceCache;
 
-    public void login(UserProfile user) {
+    public UserProfile login(UserProfile user) {
+        if (log.isInfoEnabled()) {
+            log.info("User login account={}, password={}", user.getName(), user.getPassword());
+        }
+
+        // encrypt password
+        user.setPassword(EncryptionUtils.encrypt(user.getPassword()));
+        UserProfile saved = userPlayerCache.save(user);
+
+        UserResource initResource = new UserResource(saved.getId());
+        userResourceCache.save(initResource);
+        // TODO test mongo
+        userProfileRepository.save(user);
+        userResourceRepository.save(initResource);
+
+        return saved;
+    }
+
+    public void register(UserProfile user) { // encrypt password
+        user.setPassword(EncryptionUtils.encrypt(user.getPassword()));
         UserProfile saved = userPlayerCache.save(user);
 
         UserResource initResource = new UserResource(saved.getId());

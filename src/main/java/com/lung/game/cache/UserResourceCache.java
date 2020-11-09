@@ -7,7 +7,7 @@ import org.springframework.data.keyvalue.repository.KeyValueRepository;
  * @author noseparte
  * @link github.com/noseparte
  * @date 2020/11/6 - 18:43
- * @implSpec
+        * @implSpec
  */
 public interface UserResourceCache extends KeyValueRepository<UserResource, Long> {
 
