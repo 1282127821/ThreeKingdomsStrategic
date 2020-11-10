@@ -2,8 +2,8 @@ package com.lung.game.service;
 
 import com.lung.game.cache.UserPlayerCache;
 import com.lung.game.cache.UserResourceCache;
-import com.lung.game.domain.UserProfile;
-import com.lung.game.domain.UserResource;
+import com.lung.game.domain.user.UserProfile;
+import com.lung.game.domain.user.UserResource;
 import com.lung.game.repository.UserProfileRepository;
 import com.lung.game.repository.UserResourceRepository;
 import com.lung.game.utils.EncryptionUtils;
@@ -11,9 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author noseparte

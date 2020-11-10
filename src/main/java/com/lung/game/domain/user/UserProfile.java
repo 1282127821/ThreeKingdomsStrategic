@@ -1,4 +1,4 @@
-package com.lung.game.domain;
+package com.lung.game.domain.user;
 
 import com.lung.game.mixed.RedisKeyPrefix;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.lung.game.repository;
 
-import com.lung.game.domain.UserResource;
+import com.lung.game.domain.user.UserResource;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

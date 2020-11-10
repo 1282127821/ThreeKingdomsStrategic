@@ -1,11 +1,10 @@
 package com.lung.game.handler;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lung.game.domain.UserProfile;
+import com.lung.game.domain.user.UserProfile;
 import com.lung.game.service.UserService;
 import com.lung.game.web.bean.Response;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

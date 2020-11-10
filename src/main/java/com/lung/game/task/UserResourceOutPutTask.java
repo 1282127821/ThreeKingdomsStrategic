@@ -2,7 +2,7 @@ package com.lung.game.task;
 
 import com.lung.game.cache.UserPlayerCache;
 import com.lung.game.cache.UserResourceCache;
-import com.lung.game.domain.UserResource;
+import com.lung.game.domain.user.UserResource;
 import com.lung.game.mixed.CronConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.Trigger;
@@ -44,7 +44,7 @@ public class UserResourceOutPutTask implements SchedulingConfigurer {
                 userPlayerCache.findAll().forEach(
                         userProfile -> {
                             Optional<UserResource> userResource = userResourceCache.findById(userProfile.getId());
-                            if (!userResource.isPresent()) {
+                            if (userResource.isEmpty()) {
                                 if (log.isDebugEnabled()) {
                                     log.debug("user {} has no resources output", userProfile.getId());
                                 }

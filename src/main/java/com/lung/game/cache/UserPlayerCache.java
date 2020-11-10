@@ -1,6 +1,6 @@
 package com.lung.game.cache;
 
-import com.lung.game.domain.UserProfile;
+import com.lung.game.domain.user.UserProfile;
 import org.springframework.data.keyvalue.repository.KeyValueRepository;
 import org.springframework.stereotype.Repository;
 

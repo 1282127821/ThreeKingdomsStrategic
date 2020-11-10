@@ -1,6 +1,6 @@
 package com.lung.game.cache;
 
-import com.lung.game.domain.UserResource;
+import com.lung.game.domain.user.UserResource;
 import org.springframework.data.keyvalue.repository.KeyValueRepository;
 
 /**
